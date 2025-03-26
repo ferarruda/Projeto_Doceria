@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda & Suporte | Ateliê Doce Encanto</title>
+    <link rel="stylesheet" th:href="@{/css/styleAjuda.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="ajuda-container">
+        <header class="ajuda-header">
+            <h1><i class="fas fa-hands-helping"></i> Central de Ajuda</h1>
+            <p>Tire suas dúvidas ou entre em contato</p>
+        </header>
+
+        <main class="ajuda-main">
+            <section class="ajuda-section" id="cadastro">
+                <h2><i class="fas fa-user-circle"></i> Cadastro</h2>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Como criar minha conta?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ol class="steps">
+                            <li>
+                                <strong>Acesse a página de login</strong>
+                                <p>Clique em "Cadastre-se"</p>
+                            </li>
+                            <li>
+                                <strong>Preencha seus dados</strong>
+                                <p>Informe nome completo, e-mail válido e senha</p>
+                            </li>
+                            <li>
+                                <strong>Cadastro efetuado</strong>
+                                <p>Enviaremos um link de confirmação para o seu e-mail</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-lock"></i>
+                        <span>Como redefinir minha senha?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Na página de login, clique em "Esqueci minha senha" e siga as instruções. O link expira em 1 hora.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ajuda-section" id="pagamento">
+                <h2><i class="fas fa-credit-card"></i> Pagamentos</h2>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Formas de pagamento aceitas</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="payment-methods">
+                            <li><i class="fab fa-cc-visa"></i> Cartão Visa (crédito/débito)</li>
+                            <li><i class="fab fa-cc-mastercard"></i> Mastercard</li>
+                            <li><i class="fas fa-barcode"></i> Pix (pagamento instantâneo)</li>
+                            <li><i class="fas fa-money-bill-wave"></i> Boleto bancário (48h para compensação)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Política de reembolsos</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Cancelamentos em até 7 dias: reembolso integral. Após produção iniciada: crédito para futuras compras.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="servicos-section">
+                <h2><i class="fas fa-star"></i> Nossos Serviços</h2>
+                <div class="servicos-grid">
+                    <div class="servico-card">
+                        <div class="card-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3>Bolos Personalizados</h3>
+                        <p>Sobremesas temáticas para eventos especiais</p>
+                    </div>
+                    
+                    <div class="servico-card">
+                        <div class="card-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h3>Bolo de Pote</h3>
+                        <p>Conveniência e sabor em porção individual</p>
+                    </div>
+
+                    <div class="servico-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h3>Barras de Chocolate</h3>
+                        <p>Barras artesanais com 70% cacau</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contato-section" id="contato">
+                <h2><i class="fas fa-envelope"></i> Fale Conosco</h2>
+                <form th:action="@{/faleconosco}" th:object="${contato}" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" th:field="*{nome}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" th:field="*{email}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Sua Mensagem</label>
+                        <textarea id="mensagem" th:field="*{mensagem}" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script do Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
+            
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('show');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

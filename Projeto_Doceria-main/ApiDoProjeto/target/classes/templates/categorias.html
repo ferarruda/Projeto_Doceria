@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="shortcut icon" href="assets/homeP/logoAtelie.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Favicon -->
+    <link rel="icon" th:href="@{img/logo.png}" type="image/png">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" th:href="@{/css/styleCategoria.css}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    
+        <div class="container-fluid">
+          <img class="logoTopo me-2" src="assets/homeP/logoAtelie.png" alt="Logo do site" width="40" height="40">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item pe-2">
+                <a class="nav-link fw-semibold" aria-current="page" th:href="@{/}">Home</a>
+              </li>
+                <a class="nav-link fw-semibold" aria-current="page"  th:href="@{/login}">Login</a>
+                <a class="nav-link fw-semibold" aria-current="page"  th:href="@{/faleconosco}">Contato</a>
+              </li>        
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 rounded-0" type="search" placeholder="Procure no site" aria-label="Search">
+              <button class="btn btn-pink rounded-0" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <!-- Modal de Busca -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Busca</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Pesquise por páginas...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="container-fluid d-flex">
+        <!-- Menu à esquerda (1/3 da tela) -->
+        <div class="menu col-md-4">
+            <h2>Menu</h2>
+
+            <!-- Pesquisa -->
+            <div class="pesquisa">
+                <label for="pesquisa">Pesquisa:</label>
+                <input type="text" id="pesquisa" placeholder="Digite para pesquisar...">
+            </div>
+
+            <!-- Opções de sabores -->
+            <div class="opcoes">
+                <div id="bolo" class="opcao">Bolo</div>
+                <div id="donuts" class="opcao">Donuts</div>
+                <div id="cupcake" class="opcao">Bolo de pote</div>
+                <div id="barra" class="opcao">Barras</div>
+            </div>
+        </div>
+
+        <!-- Produtos à direita (2/3 da tela) -->
+        <div class="produtos col-md-8">
+            <div class="row" id="produtos-container">
+                <!-- Produtos dinâmicos serão inseridos aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Dados dos produtos
+        const produtos = {
+            bolo: [
+                { nome: "Bolo de Chocolate", descricao: "Bolo delicioso de chocolate", img: "/assets/categorias/bolo_chocolate.jpg" },
+                { nome: "Bolo de Doce de Leite", descricao: "Bolo cremoso de doce de leite", img: "/assets/categorias/bolo_doce_de_leite.jpg" },
+                { nome: "Bolo de Baunilha", descricao: "Bolo simples de baunilha", img: "/assets/categorias/bolo_baunilha.jpg" },
+                { nome: "Bolo de Coco", descricao: "Bolo suave de coco", img: "/assets/categorias/bolo_coco.jpg" },
+                { nome: "Bolo de Limão", descricao: "Bolo refrescante de limão", img: "/assets/categorias/bolo_limao.jpg" },
+                { nome: "Bolo de Red Velvet", descricao: "Bolo de Red Velvet com cream cheese", img: "/assets/categorias/bolo_redvelvet.jpg" },
+                
+            ],
+            donuts: [
+                { nome: "Donut de Chocolate", descricao: "Donut coberto com ganache de chocolate", img: "/assets/categorias/donut_chocolate.jpg" },
+                { nome: "Donut de Baunilha", descricao: "Donut com cobertura de baunilha", img: "/assets/categorias/donut_baunilha.jpg" },
+                { nome: "Donut de morango", descricao: "Donut de morango com cream cheese", img: "/assets/categorias/donut_morango.jpg" },
+            ],
+            cupcake: [
+                { nome: "Cup Cake de Chocolate com Ganache", descricao: "Cupcake de chocolate com ganache", img: "/assets/categorias/cupcake_chocolate.jpg" },
+                { nome: "Cup Cake de Baunilha com Buttercream", descricao: "Cupcake de baunilha com buttercream", img: "/assets/categorias/cupcake_baunilha.jpg" },
+                { nome: "Cup Cake de Red Velvet", descricao: "Cupcake de morango com cobertura de cream cheese", img: "/assets/categorias/cupcake_morango.jpg" },
+            ],
+            barra: [
+                { nome: "Chocolate", descricao: "Chocolate amargo", img: "/assets/categorias/barra_chocolate.jpg" },
+                { nome: "Chocolate Branco", descricao: "Barra de chocolate branco", img: "/assets/categorias/barra_chocolate_branco.jpg" },
+                { nome: "Pistache", descricao: "Chocolate com pistache", img: "/assets/categorias/barra_chocolate_pistache.jpg" },
+            ]
+        };
+
+        // Função para exibir produtos
+        function exibirProdutos(sabor = '') {
+            const container = document.getElementById('produtos-container');
+            container.innerHTML = '';
+
+            let produtosParaMostrar = [];
+
+            if (sabor) {
+                produtosParaMostrar = produtos[sabor] || [];
+            } else {
+                for (const key in produtos) {
+                    produtosParaMostrar = produtosParaMostrar.concat(produtos[key]);
+                }
+            }
+
+            produtosParaMostrar.forEach(produto => {
+                const produtoDiv = document.createElement('div');
+                produtoDiv.classList.add('col-md-4', 'produto');
+                produtoDiv.innerHTML = `
+                    <div class="produto-item">
+                        <img src="${produto.img}" alt="${produto.nome}" class="img-fluid">
+                        <div class="descricao">
+                            <h5>${produto.nome}</h5>
+                            <p>${produto.descricao}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(produtoDiv);
+            });
+        }
+
+        // Adicionar evento de clique nas opções do menu
+        document.getElementById('bolo').addEventListener('click', () => exibirProdutos('bolo'));
+        document.getElementById('donuts').addEventListener('click', () => exibirProdutos('donuts'));
+        document.getElementById('cupcake').addEventListener('click', () => exibirProdutos('cupcake'));
+        document.getElementById('barra').addEventListener('click', () => exibirProdutos('barra'));
+
+        // Filtro de pesquisa
+        document.getElementById('pesquisa').addEventListener('input', function() {
+            const termoBusca = this.value.toLowerCase();
+            const produtosFiltrados = [];
+            for (const categoria in produtos) {
+                produtos[categoria].forEach(produto => {
+                    if (produto.nome.toLowerCase().includes(termoBusca)) {
+                        produtosFiltrados.push(produto);
+                    }
+                });
+            }
+
+            const container = document.getElementById('produtos-container');
+            container.innerHTML = '';
+
+            produtosFiltrados.forEach(produto => {
+                const produtoDiv = document.createElement('div');
+                produtoDiv.classList.add('col-md-4', 'produto');
+                produtoDiv.innerHTML = `
+                    <div class="produto-item">
+                        <img src="${produto.img}" alt="${produto.nome}" class="img-fluid">
+                        <div class="descricao">
+                            <h5>${produto.nome}</h5>
+                            <p>${produto.descricao}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(produtoDiv);
+            });
+        });
+
+        // Exibe todos os produtos inicialmente
+        exibirProdutos();
+    </script>
+    
+</body>
+</html>

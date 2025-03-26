@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuários</title>
+  <link rel="shortcut icon" th:href="@{/assets/homeP/logoAtelie.png}" type="image/x-icon">
+  <link rel="stylesheet" th:href="@{/css/styleFuncionario.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0">Lista de Usuários</h1>
+      <a th:href="@{/}" class="btn btn-secondary">Voltar</a>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="cadastro : ${cadastros}">
+            <td th:text="${cadastro.id}"></td>
+            <td th:text="${cadastro.nome}"></td>
+            <td th:text="${cadastro.sobrenome}"></td>
+            <td th:text="${cadastro.email}"></td>
+            <td>
+              <a th:href="@{'/cadastro/editar/' + ${cadastro.id}}" class="btn btn-sm btn-primary me-2">Editar</a>
+              <a th:href="@{'/cadastro/excluir/' + ${cadastro.id}}" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
