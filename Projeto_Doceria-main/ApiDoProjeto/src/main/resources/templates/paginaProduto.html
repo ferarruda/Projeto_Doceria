@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,6 @@
 <body>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-
     <div class="container-fluid">
       <img class="logoTopo me-2" src="assets/homeP/logoAtelie.png" alt="Logo do site" width="40" height="40">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -36,7 +35,7 @@
     </div>
   </nav>
 
-  <!-- **************** SEÇÃO PRODUTO (REFORMULADA) **************** -->
+  <!--  SEÇÃO PRODUTO  -->
   <main class="produto-container">
     <div class="produto-galeria">
       <div class="galeria-principal">
@@ -78,7 +77,7 @@
     </div>
   </main>
 
-  <!-- **************** AVALIAÇÕES MODERNAS **************** -->
+  <!--  AVALIAÇÕES  -->
   <section class="avaliacoes-modernas">
     <div class="container">
       <h2 class="avaliacoes-titulo">Avaliações <span class="destaque-titulo">Destaques</span></h2>
@@ -135,7 +134,7 @@
     </div>
   </section>
 
-  <!-- **************** VOCÊ TAMBÉM PODE GOSTAR **************** -->
+  <!--  VOCÊ TAMBÉM PODE GOSTAR  -->
   <section class="produtos-relacionados">
     <div class="container">
       <h2 class="relacionados-titulo">Você também <span class="destaque-titulo">pode gostar</span></h2>
@@ -196,12 +195,14 @@
     </div>
   </section>
 
-  <!-- **************** RODAPÉ MODERNO **************** -->
+  <!--  RODAPÉ MODERNO  -->
 <footer class="footer-moderno">
   <div class="container">
     <div class="footer-content">
       <div class="footer-col">
-        <img src="/assets/homeP/logoAtelie.png" alt="Ateliê Doce" width="60">
+        <a th:href="@{/}" class="d-inline-block">
+        <img  th:src="@{/assets/homeP/logoAtelie.png}" alt="Ateliê Doce" width="60">
+      </a>
         <p class="footer-slogan">Doces feitos com amor e dedicação</p>
         <div class="social-icons">
           <a href="#"><i class="bi bi-instagram"></i></a>
@@ -213,9 +214,9 @@
       <div class="footer-col">
         <h3 class="footer-title">Links Rápidos</h3>
         <ul class="footer-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Produtos</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/produtos}">Produtos</a></li>
+          <li><a th:href="@{/contato}">Contato</a></li>
         </ul>
       </div>
       
@@ -236,7 +237,7 @@
 </footer>
 
   <script>
-    // Script original mantido (com adaptações se necessário)
+    
     document.addEventListener("DOMContentLoaded", function () {
       let quantidade = 1;
       const quantidadeSpan = document.getElementById("quantidade");
@@ -253,7 +254,6 @@
         }
       });
 
-      // Interação das miniaturas (novo)
       const miniaturas = document.querySelectorAll('.miniatura');
       miniaturas.forEach(miniatura => {
         miniatura.addEventListener('click', function () {
@@ -278,14 +278,14 @@
           this.style.backgroundColor = 'var(--rosa-principal)';
         }, 2000);
 
-        // Aqui você pode adicionar a lógica para adicionar ao carrinho
+        // lógica para adicionar ao carrinho aqui
       });
     });
 
     // Adicionar clique no card para ver detalhes do produto
     document.querySelectorAll('.produto-card').forEach(card => {
       card.addEventListener('click', function () {
-        // Aqui você pode redirecionar para a página do produto
+        // redirecionar para a página do produto aqui
         // window.location.href = '/produto/' + produtoId;
       });
     });

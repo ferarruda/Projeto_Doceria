@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @Getter @Setter
-@AllArgsConstructor // Opcional (só manter se for útil)
+@AllArgsConstructor 
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id") // Recomendado manter
 @Entity

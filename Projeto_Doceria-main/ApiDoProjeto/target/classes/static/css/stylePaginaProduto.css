@@ -8,7 +8,6 @@
   --transicao: all 0.3s ease;
 }
 
-/* ESTILOS GERAIS */
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
   background: white;
@@ -16,7 +15,6 @@ body {
   line-height: 1.6;
 }
 
-/* NAVBAR BOOTSTRAP PERSONALIZADA */
 .navbar {
   box-shadow: var(--sombra);
 }
@@ -32,7 +30,7 @@ body {
   color: white;
 }
 
-/* SEÇÃO PRODUTO */
+/* PRODUTO */
 .produto-container {
   display: flex;
   flex-wrap: wrap;
@@ -169,7 +167,7 @@ body {
   font-size: 1rem;
 }
 
-/* ************* AVALIAÇÕES MODERNAS - ATUALIZADO ************* */
+/*  AVALIAÇÕES  */
 .avaliacoes-modernas {
   background-color: #fff8fa;
   padding: 2rem 0;
@@ -249,7 +247,6 @@ body {
   font-size: 0.8rem;
 }
 
-/* Tablet - 3 colunas (mesmo layout) */
 @media (max-width: 1024px) {
   .avaliacoes-horizontal {
     grid-template-columns: repeat(3, minmax(280px, 1fr));
@@ -257,7 +254,6 @@ body {
   }
 }
 
-/* Tablet menor - 2 colunas */
 @media (max-width: 768px) {
   .avaliacoes-horizontal {
     grid-template-columns: repeat(2, minmax(260px, 1fr));
@@ -268,7 +264,6 @@ body {
   }
 }
 
-/* Celular - 1 coluna */
 @media (max-width: 576px) {
   .avaliacoes-modernas {
     padding: 1.5rem 0;
@@ -285,7 +280,7 @@ body {
   }
 }
 
-/* ************* PRODUTOS RELACIONADOS - ATUALIZADO ************* */
+/*  PRODUTOS RELACIONADOS  */
 .produtos-relacionados {
   padding: 3rem 0;
   background-color: #fff;
@@ -399,7 +394,6 @@ body {
   gap: 0.5rem;
 }
 
-/* Tablet - 4 colunas (1 linha) */
 @media (max-width: 1024px) {
   .relacionados-grid {
     grid-template-columns: repeat(4, minmax(180px, 1fr));
@@ -411,7 +405,6 @@ body {
   }
 }
 
-/* Tablet menor - 2 colunas (2 linhas) */
 @media (max-width: 768px) {
   .relacionados-grid {
     grid-template-columns: repeat(2, minmax(160px, 1fr));
@@ -422,7 +415,6 @@ body {
   }
 }
 
-/* Celular - 2 colunas (2 linhas) com ajustes */
 @media (max-width: 480px) {
   .produtos-relacionados {
     padding: 2rem 0;
@@ -456,7 +448,6 @@ body {
   }
 }
 
-/* Ajuste extra para telas muito pequenas */
 @media (max-width: 360px) {
   .relacionados-grid {
     grid-template-columns: 1fr;
@@ -464,7 +455,6 @@ body {
   }
 }
 
-/* ************* RODAPÉ MODERNO ************* */
 .footer-moderno {
   background-color: #2a2a2a;
   color: white;
@@ -563,7 +553,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr;
