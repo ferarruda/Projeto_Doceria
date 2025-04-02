@@ -1,194 +1,299 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-    <link rel="shortcut icon" href="assets/homeP/logoAtelie.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Favicon -->
-    <link rel="icon" th:href="@{img/logo.png}" type="image/png">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom Styles -->
+    <title>Doceria Delícia - Categorias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/styleCategoria.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    
         <div class="container-fluid">
-          <img class="logoTopo me-2" src="assets/homeP/logoAtelie.png" alt="Logo do site" width="40" height="40">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item pe-2">
-                <a class="nav-link fw-semibold" aria-current="page" th:href="@{/}">Home</a>
-              </li>
-                <a class="nav-link fw-semibold" aria-current="page"  th:href="@{/login}">Login</a>
-                <a class="nav-link fw-semibold" aria-current="page"  th:href="@{/faleconosco}">Contato</a>
-              </li>        
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 rounded-0" type="search" placeholder="Procure no site" aria-label="Search">
-              <button class="btn btn-pink rounded-0" type="submit">Buscar</button>
-            </form>
-          </div>
+            <img class="logoTopo me-2" src="assets/homeP/logoAtelie.png" alt="Logo do site" width="40" height="40">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item pe-2">
+                        <a class="nav-link fw-semibold" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link fw-semibold" aria-current="page" th:href="@{/login}">Login</a>
+                    </li>
+                    <li>
+                        <a class="nav-link fw-semibold" aria-current="page" th:href="@{/faleconosco}">Contato</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 rounded-0" type="search" placeholder="Procure no site"
+                        aria-label="Search">
+                    <button class="btn btn-pink rounded-0" type="submit">Buscar</button>
+                </form>
+            </div>
         </div>
-      </nav>
-    <!-- Modal de Busca -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="searchModalLabel">Busca</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </nav>
+
+    <main class="main-content">
+        <section class="categories-banner">
+                <h1><i class="fas fa-heart"></i> Nossas Delícias</h1>
+                <p>Descubra nossos produtos feitos com carinho e ingredientes selecionados</p>
+        </section>
+
+        <div class="categories-container">
+            <div class="container">
+                <div class="categories-sidebar">
+                    <h3>Categorias</h3>
+                    <ul class="categories-list">
+                        <li><a href="#" class="active" data-category="all">Todos os Produtos</a></li>
+                        <li><a href="#" data-category="bolos">Bolos</a></li>
+                        <li><a href="#" data-category="cupcakes">Cupcakes</a></li>
+                        <li><a href="#" data-category="donuts">Donuts</a></li>
+                        <li><a href="#" data-category="barras">Barras de Chocolate</a></li>
+                    </ul>
                 </div>
-                <div class="modal-body">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Pesquise por páginas...">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Conteúdo Principal -->
-    <div class="container-fluid d-flex">
-        <!-- Menu à esquerda (1/3 da tela) -->
-        <div class="menu col-md-4">
-            <h2>Menu</h2>
+                <div class="products-main">
+                    <div class="products-filter">
+                        <span>Ordenar por:</span>
+                        <select>
+                            <option>Mais recentes</option>
+                            <option>Preço: menor para maior</option>
+                            <option>Preço: maior para menor</option>
+                            <option>Mais populares</option>
+                        </select>
+                    </div>
 
-            <!-- Pesquisa -->
-            <div class="pesquisa">
-                <label for="pesquisa">Pesquisa:</label>
-                <input type="text" id="pesquisa" placeholder="Digite para pesquisar...">
-            </div>
-
-            <!-- Opções de sabores -->
-            <div class="opcoes">
-                <div id="bolo" class="opcao">Bolo</div>
-                <div id="donuts" class="opcao">Donuts</div>
-                <div id="cupcake" class="opcao">Bolo de pote</div>
-                <div id="barra" class="opcao">Barras</div>
-            </div>
-        </div>
-
-        <!-- Produtos à direita (2/3 da tela) -->
-        <div class="produtos col-md-8">
-            <div class="row" id="produtos-container">
-                <!-- Produtos dinâmicos serão inseridos aqui -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script>
-        // Dados dos produtos
-        const produtos = {
-            bolo: [
-                { nome: "Bolo de Chocolate", descricao: "Bolo delicioso de chocolate", img: "/assets/categorias/bolo_chocolate.jpg" },
-                { nome: "Bolo de Doce de Leite", descricao: "Bolo cremoso de doce de leite", img: "/assets/categorias/bolo_doce_de_leite.jpg" },
-                { nome: "Bolo de Baunilha", descricao: "Bolo simples de baunilha", img: "/assets/categorias/bolo_baunilha.jpg" },
-                { nome: "Bolo de Coco", descricao: "Bolo suave de coco", img: "/assets/categorias/bolo_coco.jpg" },
-                { nome: "Bolo de Limão", descricao: "Bolo refrescante de limão", img: "/assets/categorias/bolo_limao.jpg" },
-                { nome: "Bolo de Red Velvet", descricao: "Bolo de Red Velvet com cream cheese", img: "/assets/categorias/bolo_redvelvet.jpg" },
-                
-            ],
-            donuts: [
-                { nome: "Donut de Chocolate", descricao: "Donut coberto com ganache de chocolate", img: "/assets/categorias/donut_chocolate.jpg" },
-                { nome: "Donut de Baunilha", descricao: "Donut com cobertura de baunilha", img: "/assets/categorias/donut_baunilha.jpg" },
-                { nome: "Donut de morango", descricao: "Donut de morango com cream cheese", img: "/assets/categorias/donut_morango.jpg" },
-            ],
-            cupcake: [
-                { nome: "Cup Cake de Chocolate com Ganache", descricao: "Cupcake de chocolate com ganache", img: "/assets/categorias/cupcake_chocolate.jpg" },
-                { nome: "Cup Cake de Baunilha com Buttercream", descricao: "Cupcake de baunilha com buttercream", img: "/assets/categorias/cupcake_baunilha.jpg" },
-                { nome: "Cup Cake de Red Velvet", descricao: "Cupcake de morango com cobertura de cream cheese", img: "/assets/categorias/cupcake_morango.jpg" },
-            ],
-            barra: [
-                { nome: "Chocolate", descricao: "Chocolate amargo", img: "/assets/categorias/barra_chocolate.jpg" },
-                { nome: "Chocolate Branco", descricao: "Barra de chocolate branco", img: "/assets/categorias/barra_chocolate_branco.jpg" },
-                { nome: "Pistache", descricao: "Chocolate com pistache", img: "/assets/categorias/barra_chocolate_pistache.jpg" },
-            ]
-        };
-
-        // Função para exibir produtos
-        function exibirProdutos(sabor = '') {
-            const container = document.getElementById('produtos-container');
-            container.innerHTML = '';
-
-            let produtosParaMostrar = [];
-
-            if (sabor) {
-                produtosParaMostrar = produtos[sabor] || [];
-            } else {
-                for (const key in produtos) {
-                    produtosParaMostrar = produtosParaMostrar.concat(produtos[key]);
-                }
-            }
-
-            produtosParaMostrar.forEach(produto => {
-                const produtoDiv = document.createElement('div');
-                produtoDiv.classList.add('col-md-4', 'produto');
-                produtoDiv.innerHTML = `
-                    <div class="produto-item">
-                        <img src="${produto.img}" alt="${produto.nome}" class="img-fluid">
-                        <div class="descricao">
-                            <h5>${produto.nome}</h5>
-                            <p>${produto.descricao}</p>
+                    <div class="products-grid">
+                        <!-- Bolos (3 produtos) -->
+                        <div class="product-card" data-category="bolos">
+                            <div class="product-image">
+                                <img src="/assets/homeP/bolo.png" alt="Bolo de Chocolate">
+                                <span class="discount-badge">-15%</span>
+                            </div>
+                            <h3>Bolo de Chocolate</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 89,90</span>
+                                <span class="old-price">R$ 105,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="bolos">
+                            <div class="product-image">
+                                <img src="/assets/homeP/bolo.png" alt="Bolo de Morango">
+                            </div>
+                            <h3>Bolo de Morango</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 95,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="bolos">
+                            <div class="product-image">
+                                <img src="/assets/homeP/bolo.png" alt="Bolo de Cenoura">
+                                <span class="new-badge">Novo</span>
+                            </div>
+                            <h3>Bolo de Cenoura</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 75,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <!-- Cupcakes (3 produtos) -->
+                        <div class="product-card" data-category="cupcakes">
+                            <div class="product-image">
+                                <img src="/assets/homeP/boloDePote.png" alt="Cupcake de Morango">
+                            </div>
+                            <h3>Cupcake de Morango</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 12,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="cupcakes">
+                            <div class="product-image">
+                                <img src="/assets/homeP/boloDePote.png" alt="Cupcake de Chocolate">
+                                <span class="discount-badge">-10%</span>
+                            </div>
+                            <h3>Cupcake de Chocolate</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 10,90</span>
+                                <span class="old-price">R$ 12,10</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="cupcakes">
+                            <div class="product-image">
+                                <img src="/assets/homeP/boloDePote.png" alt="Cupcake de Baunilha">
+                            </div>
+                            <h3>Cupcake de Baunilha</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 11,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <!-- Donuts (3 produtos) -->
+                        <div class="product-card" data-category="donuts">
+                            <div class="product-image">
+                                <img src="/assets/homeP/donuts.png" alt="Donuts de Chocolate">
+                            </div>
+                            <h3>Donuts de Chocolate</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 9,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="donuts">
+                            <div class="product-image">
+                                <img src="/assets/homeP/donuts.png" alt="Donuts de Morango">
+                                <span class="new-badge">Novo</span>
+                            </div>
+                            <h3>Donuts de Morango</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 10,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="donuts">
+                            <div class="product-image">
+                                <img src="/assets/homeP/donuts.png" alt="Donuts Glacê">
+                            </div>
+                            <h3>Donuts Glacê</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 8,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <!-- Barras de Chocolate (3 produtos) -->
+                        <div class="product-card" data-category="barras">
+                            <div class="product-image">
+                                <img src="/assets/homeP/barra.png" alt="Barra de Chocolate 70%">
+                            </div>
+                            <h3>Barra de Chocolate 70%</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 18,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="barras">
+                            <div class="product-image">
+                                <img src="/assets/homeP/barra.png" alt="Barra com Amêndoas">
+                                <span class="discount-badge">-5%</span>
+                            </div>
+                            <h3>Barra com Amêndoas</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 22,90</span>
+                                <span class="old-price">R$ 24,10</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    
+                        <div class="product-card" data-category="barras">
+                            <div class="product-image">
+                                <img src="/assets/homeP/barra.png" alt="Barra de Chocolate Branco">
+                            </div>
+                            <h3>Chocolate Branco</h3>
+                            <div class="price">
+                                <span class="current-price">R$ 16,90</span>
+                            </div>
+                            <button class="btn add-to-cart">Adicionar ao Carrinho</button>
                         </div>
                     </div>
-                `;
-                container.appendChild(produtoDiv);
-            });
-        }
 
-        // Adicionar evento de clique nas opções do menu
-        document.getElementById('bolo').addEventListener('click', () => exibirProdutos('bolo'));
-        document.getElementById('donuts').addEventListener('click', () => exibirProdutos('donuts'));
-        document.getElementById('cupcake').addEventListener('click', () => exibirProdutos('cupcake'));
-        document.getElementById('barra').addEventListener('click', () => exibirProdutos('barra'));
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-        // Filtro de pesquisa
-        document.getElementById('pesquisa').addEventListener('input', function() {
-            const termoBusca = this.value.toLowerCase();
-            const produtosFiltrados = [];
-            for (const categoria in produtos) {
-                produtos[categoria].forEach(produto => {
-                    if (produto.nome.toLowerCase().includes(termoBusca)) {
-                        produtosFiltrados.push(produto);
+    <footer class="footer-moderno">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a th:href="@{/}" class="d-inline-block">
+                        <img th:src="@{/assets/homeP/logoAtelie.png}" alt="Ateliê Doce" width="60">
+                    </a>
+                    <p class="footer-slogan">Doces feitos com amor e dedicação</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/categorias}">Produtos</a></li>
+                        <li><a th:href="@{/faleconosco}">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contato</h3>
+                    <ul class="footer-contato">
+                        <li><i class="bi bi-geo-alt"></i> Rua dos Doces, 123 - São Paulo</li>
+                        <li><i class="bi bi-telephone"></i> (11) 98765-4321</li>
+                        <li><i class="bi bi-envelope"></i> contato@ateliedoce.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ateliê Doce. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Filtro de categorias
+        document.querySelectorAll('.categories-list a').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Atualiza a categoria ativa
+                document.querySelector('.categories-list a.active').classList.remove('active');
+                this.classList.add('active');
+
+                // Filtra os produtos
+                const category = this.getAttribute('data-category');
+                const products = document.querySelectorAll('.product-card');
+
+                products.forEach(product => {
+                    if (category === 'all' || product.getAttribute('data-category') === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
                     }
                 });
-            }
-
-            const container = document.getElementById('produtos-container');
-            container.innerHTML = '';
-
-            produtosFiltrados.forEach(produto => {
-                const produtoDiv = document.createElement('div');
-                produtoDiv.classList.add('col-md-4', 'produto');
-                produtoDiv.innerHTML = `
-                    <div class="produto-item">
-                        <img src="${produto.img}" alt="${produto.nome}" class="img-fluid">
-                        <div class="descricao">
-                            <h5>${produto.nome}</h5>
-                            <p>${produto.descricao}</p>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(produtoDiv);
             });
         });
-
-        // Exibe todos os produtos inicialmente
-        exibirProdutos();
     </script>
-    
 </body>
+
 </html>
