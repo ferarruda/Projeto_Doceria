@@ -124,27 +124,28 @@ body {
 .contato-section {
     max-width: 800px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 40px;
     background: var(--branco);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .form-row {
     display: flex;
     gap: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group {
     flex: 1;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 600;
+    color: #555;
 }
 
 .form-group input,
@@ -152,25 +153,36 @@ body {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
+    box-sizing: border-box; 
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--rosa);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
 }
 
 .form-group textarea {
     height: 150px;
+    resize: vertical;
 }
 
 .btn-submit {
     background: var(--rosa);
     color: var(--branco);
     border: none;
-    padding: 12px 25px;
+    padding: 14px 30px;
     font-size: 1rem;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    transition: all 0.3s ease;
 }
 
 /* Responsivo */
