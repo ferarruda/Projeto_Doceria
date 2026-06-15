@@ -117,7 +117,3 @@ Fernando Arruda
 ### Página Inicial
 ![Página Inicial](Projeto_Doceria-main/docs/home.png)
 
-### Login
-![Login](Projeto_Doceria-main/docs/login.png)
-
-
