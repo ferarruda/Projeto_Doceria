@@ -118,6 +118,6 @@ Fernando Arruda
 ![Página Inicial](Projeto_Doceria-main/docs/home.png)
 
 ### Login
-![Login](Projeto_Doceria-main/docs/login.png)
+![Login](docs/login.PNG)
 
 
