@@ -115,9 +115,9 @@ Fernando Arruda
 ## 📸 Demonstração
 
 ### Página Inicial
-![Página Inicial](Projeto_Doceria-main/docs/HomeDoceria.png)
+![Página Inicial](Projeto_Doceria-main/docs/Home.png)
 
 ### Login
-![Login](Projeto_Doceria-main/docs/LoginDoceria.png)
+![Login](Projeto_Doceria-main/docs/Login.png)
 
 
